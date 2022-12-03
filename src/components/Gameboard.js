@@ -2,7 +2,10 @@ const Gameboard = () => {
   const resetBoard = () => new Array(100).fill(null);
   const board = resetBoard();
   const getBoard = () => board;
+  const setCoordinate = (index, value) => (board[index] = value);
+  const getCoordinate = (index) => (board[index]);
   const inputToCoordinate = (input) => [input[0].toUpperCase(), +input.slice(1)];
+
   const isCoordinateValid = ([letter, number]) => {
     if (!(letter >= 'A' && letter <= 'J')) {
       // if letter is a number, it converts 'A' & 'J' to NaN during comparisson == false
@@ -13,11 +16,18 @@ const Gameboard = () => {
     }
     return true;
   };
+
   const getIndex = ([letter, number]) => {
     const letterMultiplier = (letter.charCodeAt() - 'A'.charCodeAt()) * 10;
     return letterMultiplier + number - 1;
   };
-  const isCoordinateEmpty = ([letter, number]) => {
+
+  const isCoordinateValidEmpty = ([letter, number]) => {
+    // i think delete this function.. it is ONLY used by setShip
+    // and it makes it suboptimal to use
+    // not sure...
+    // when we render the map, we dont need this anyways bc
+    // we will just be going over the whole board.... so we dont need to check if they are valid
     if (isCoordinateValid([letter, number])) {
       const index = getIndex([letter, number]);
       return board[index] === null;
@@ -25,38 +35,6 @@ const Gameboard = () => {
     return false;
   };
 
-  const setCoordinate = (index, value) => (board[index] = value);
-  const getCoordinate = (index) => (board[index]);
-  const setShip = (ship, start, end) => {
-    const [startLetter, startNumber] = inputToCoordinate(start);
-    const [endLetter, endNumber] = inputToCoordinate(end);
-
-    if (startLetter === endLetter) {
-      if ((endNumber - startNumber) === ship.getLength()) {
-        // how do i get all coordinated in between start and end ?
-        for (let i = getIndex([startLetter, startNumber]); i < ship.getLength(); i += 1) {
-          setCoordinate(i, ship);
-        }
-      }
-    } else if (startNumber === endNumber) {
-      // check if dff in letter equivalent number == ship.length
-      if ((endLetter.charCodeAt() - startLetter.charCodeAt()) === ship.getLength()) {
-        // all coordinated between start and end
-        for (let i = getIndex([startLetter, startNumber]); i < ship.getLength(); i += 10) {
-          setCoordinate(i, ship);
-        }
-      }
-    }
-    // TODOTODO rn this only lets u setSHip left to right or downwards... how to fix ??
-
-    // isCoordinateEmpty() on start & end coords,
-    // are input cords ONLY either Horiz or Vertical ?
-    // is shipLength = total spots
-    // Maybe veritcal/horizontal check is simple...?
-    // check if either the Letter or Num stays the same
-    // for ex: 'A1 to A4' OR 'A1 to D1'... I only changed either the 'A' or the '1'
-    // can ALSO JUST use %10 for vertical and x === x +/- 1 for horizontal
-  };
   const setShip22 = (ship, inputArray) => {
     if (inputArray.length !== ship.getLength()) {
       return false;
@@ -65,19 +43,38 @@ const Gameboard = () => {
     //   // if length is 1
     // }
 
-    const allCoordsEmptyValid = inputArray.every((input) => {
-      const coordinate = inputToCoordinate(input);
-      return isCoordinateEmpty(coordinate);
-    });
+    // --- was rewriting this, but read TODO at end of File
+    // const allCoordsEmptyValid = inputArray.every((input) => {
+    //   const coordinate = inputToCoordinate(input);
+    //   return isCoordinateValidEmpty(coordinate);
+    // });
 
-    if (!allCoordsEmptyValid) {
-      return false;
-    }
+    // if (!allCoordsEmptyValid) {
+    //   return false;
+    // }
 
+    // const allIndex = inputArray.map((input) => {
+    //   const coordinate = inputToCoordinate(input);
+    //   return getIndex(coordinate);
+    // });
+    // ----
     const allIndex = inputArray.map((input) => {
       const coordinate = inputToCoordinate(input);
-      return getIndex(coordinate);
+      if (!isCoordinateValid(coordinate)) {
+        return false;
+      }
+      // check if its empty... i want to check this without isValidEmpty
+      const index = getIndex(coordinate);
+      if (!(getCoordinate(index) === null)) {
+        return false;
+      }
+      return index;
     });
+
+    const hasInvalidInput = allIndex.some((index) => index === false);
+    if (hasInvalidInput) {
+      return false;
+    }
 
     // check if all inputs have either the same Math.trunc(input/10) or the same % 10
     const isHoriz = allIndex.every((ind) => Math.trunc(ind / 10) === Math.trunc(allIndex[0] / 10));
@@ -96,10 +93,20 @@ const Gameboard = () => {
     getCoordinate,
     getIndex,
     isCoordinateValid,
-    isCoordinateEmpty,
+    isCoordinateValidEmpty,
     setShip22,
     inputToCoordinate,
   };
 };
 
 export default Gameboard;
+
+// TODO TODO the setShip portion at the bottom that we were rewruiting seems like
+// it forces me to write too much code.... maybe less it better even if it is worse algo
+
+// HOWEVER this also makes me realize that we are doing this WAYYYYY TOO MESSY
+// we are working with inputs, coordinates, and index
+// and different methods expect a differnt parameter... which is impossible to tell
+// i think it is best to just make all methods work with index.
+// if we want to, we can also have some helper methods here for outside callers, such as
+// inputToIndex() and isInputValid()
