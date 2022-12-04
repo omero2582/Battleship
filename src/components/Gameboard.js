@@ -2,100 +2,38 @@ const Gameboard = () => {
   const resetBoard = () => new Array(100).fill(null);
   const board = resetBoard();
   const getBoard = () => board;
-  const setCoordinate = (index, value) => (board[index] = value);
-  const getCoordinate = (index) => (board[index]);
-  const inputToCoordinate = (input) => [input[0].toUpperCase(), +input.slice(1)];
-
-  const isCoordinateValid = ([letter, number]) => {
-    if (!(letter >= 'A' && letter <= 'J')) {
-      // if letter is a number, it converts 'A' & 'J' to NaN during comparisson == false
+  const set = (index, value) => (board[index] = value);
+  const get = (index) => (board[index]);
+  const isValid = (index) => index >= 0 && index < 100;
+  const setShip = (ship, allIndex) => {
+    if (allIndex.length !== ship.getLength()) {
       return false;
     }
-    if (!(number >= 1 && number <= 10)) {
-      return false;
-    }
-    return true;
-  };
-
-  const coordinateToIndex = ([letter, number]) => {
-    const letterMultiplier = (letter.charCodeAt() - 'A'.charCodeAt()) * 10;
-    return letterMultiplier + number - 1;
-  };
-
-  const isCoordinateValidEmpty = ([letter, number]) => {
-    // i think delete this function.. it is ONLY used by setShip
-    // and it makes it suboptimal to use
-    // not sure...
-    // when we render the map, we dont need this anyways bc
-    // we will just be going over the whole board.... so we dont need to check if they are valid
-    if (isCoordinateValid([letter, number])) {
-      const index = coordinateToIndex([letter, number]);
-      return board[index] === null;
-    }
-    return false;
-  };
-
-  const setShip22 = (ship, inputArray) => {
-    if (inputArray.length !== ship.getLength()) {
-      return false;
-    }
-    // if (ship.getLength() === inputArray.length() === 1) {
-    //   // if length is 1
-    // }
-
-    // --- was rewriting this, but read TODO at end of File
-    // const allCoordsEmptyValid = inputArray.every((input) => {
-    //   const coordinate = inputToCoordinate(input);
-    //   return isCoordinateValidEmpty(coordinate);
-    // });
-
-    // if (!allCoordsEmptyValid) {
-    //   return false;
-    // }
-
-    // const allIndex = inputArray.map((input) => {
-    //   const coordinate = inputToCoordinate(input);
-    //   return coordinateToIndex(coordinate);
-    // });
-    // ----
-    const allIndex = inputArray.map((input) => {
-      const coordinate = inputToCoordinate(input);
-      if (!isCoordinateValid(coordinate)) {
-        return false;
-      }
-      // check if its empty... i want to check this without isValidEmpty
-      const index = coordinateToIndex(coordinate);
-      if (!(getCoordinate(index) === null)) {
-        return false;
-      }
-      return index;
-    });
-
-    const hasInvalidInput = allIndex.some((index) => index === false);
-    if (hasInvalidInput) {
+    // check if allIndex are valid && empty
+    // maybe make isValidEmpty its own function. Think do this if i re-use this code somehere else
+    const isValidEmpty = allIndex.every((index) => isValid(index) && get(index) === null);
+    if (!isValidEmpty) {
       return false;
     }
 
-    // check if all inputs have either the same Math.trunc(input/10) or the same % 10
+    // check if allIndex have either the same Math.trunc(input/10) or the same % 10
     const isHoriz = allIndex.every((ind) => Math.trunc(ind / 10) === Math.trunc(allIndex[0] / 10));
     const isVertical = allIndex.every((e) => e % 10 === allIndex[0] % 10);
     if (!(isHoriz || isVertical)) {
       return false;
     }
 
+    // if passed all check, set the ship
     allIndex.forEach((index) => {
-      setCoordinate(index, ship);
+      set(index, ship);
     });
     return true;
   };
   return {
     getBoard,
-    getCoordinate,
-    coordinateToIndex,
-    isCoordinateValid,
-    isCoordinateValidEmpty,
-    setShip22,
-    inputToCoordinate,
+    get,
+    setShip,
+    isValid,
   };
 };
 
