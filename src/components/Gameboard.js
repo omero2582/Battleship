@@ -1,5 +1,14 @@
+import Square from './Square';
+
 const Gameboard = () => {
   const resetBoard = () => new Array(100).fill(null);
+  // const resetBoard = () => {
+  //   const array = new Array(100);
+  //   for (let i = 0; i < 100; i += 1) {
+  //     array[i] = Square();
+  //   }
+  //   return array;
+  // };
   const board = resetBoard();
   const getBoard = () => board;
   const set = (index, value) => (board[index] = value);
