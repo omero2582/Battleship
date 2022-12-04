@@ -17,7 +17,7 @@ const Gameboard = () => {
     return true;
   };
 
-  const getIndex = ([letter, number]) => {
+  const coordinateToIndex = ([letter, number]) => {
     const letterMultiplier = (letter.charCodeAt() - 'A'.charCodeAt()) * 10;
     return letterMultiplier + number - 1;
   };
@@ -29,7 +29,7 @@ const Gameboard = () => {
     // when we render the map, we dont need this anyways bc
     // we will just be going over the whole board.... so we dont need to check if they are valid
     if (isCoordinateValid([letter, number])) {
-      const index = getIndex([letter, number]);
+      const index = coordinateToIndex([letter, number]);
       return board[index] === null;
     }
     return false;
@@ -55,7 +55,7 @@ const Gameboard = () => {
 
     // const allIndex = inputArray.map((input) => {
     //   const coordinate = inputToCoordinate(input);
-    //   return getIndex(coordinate);
+    //   return coordinateToIndex(coordinate);
     // });
     // ----
     const allIndex = inputArray.map((input) => {
@@ -64,7 +64,7 @@ const Gameboard = () => {
         return false;
       }
       // check if its empty... i want to check this without isValidEmpty
-      const index = getIndex(coordinate);
+      const index = coordinateToIndex(coordinate);
       if (!(getCoordinate(index) === null)) {
         return false;
       }
@@ -91,7 +91,7 @@ const Gameboard = () => {
   return {
     getBoard,
     getCoordinate,
-    getIndex,
+    coordinateToIndex,
     isCoordinateValid,
     isCoordinateValidEmpty,
     setShip22,
@@ -110,3 +110,7 @@ export default Gameboard;
 // i think it is best to just make all methods work with index.
 // if we want to, we can also have some helper methods here for outside callers, such as
 // inputToIndex() and isInputValid()
+
+// TODO TODO ACTUAL TODO
+// change this whole module so that it works ONLY with index instead of also working with input
+// and cordinates. Makes it simpler

@@ -33,8 +33,8 @@ describe('Gameboard', () =>{
 
   it('converts coordinate into corresponding array index', () => {
     const board = Gameboard();
-    expect(board.getIndex(board.inputToCoordinate('A1'))).toEqual(0);
-    expect(board.getIndex(board.inputToCoordinate('J10'))).toEqual(99);
+    expect(board.coordinateToIndex(board.inputToCoordinate('A1'))).toEqual(0);
+    expect(board.coordinateToIndex(board.inputToCoordinate('J10'))).toEqual(99);
   })
 
   it('setsShip if Coordinates are valid and empty and either horizontal or veritcal', () => {
