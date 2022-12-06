@@ -1,26 +1,29 @@
 import Square from './Square';
 
 const Gameboard = () => {
-  const resetBoard = () => new Array(100).fill(null);
-  // const resetBoard = () => {
-  //   const array = new Array(100);
-  //   for (let i = 0; i < 100; i += 1) {
-  //     array[i] = Square();
-  //   }
-  //   return array;
-  // };
+  // const resetBoard = () => new Array(100).fill(null);
+  const resetBoard = () => {
+    const array = new Array(100);
+    for (let i = 0; i < 100; i += 1) {
+      array[i] = Square();
+    }
+    return array;
+  };
   const board = resetBoard();
+  // change the top 2 methods i think... we can do setSquare(i, Square) on board ???
+  // not sure how that would combine with initializing the array to 100 tho... so maybe not
   const getBoard = () => board;
-  const set = (index, value) => (board[index] = value);
-  const get = (index) => (board[index]);
+  const getSquare = (index) => board[index];
+  const setPiece = (index, piece) => (getSquare(index).setShip(piece));
+  const getPiece = (index) => (getSquare(index).getShip());
   const isValid = (index) => index >= 0 && index < 100;
   const setShip = (ship, allIndex) => {
     if (allIndex.length !== ship.getLength()) {
       return false;
     }
     // check if allIndex are valid && empty
-    // maybe make isValidEmpty its own function. Think do this if i re-use this code somehere else
-    const isValidEmpty = allIndex.every((index) => isValid(index) && get(index) === null);
+    // can also use getPiece(index) === null at the end here instead of getSquare(index).isEmpty()
+    const isValidEmpty = allIndex.every((index) => isValid(index) && getSquare(index).isEmpty());
     if (!isValidEmpty) {
       return false;
     }
@@ -32,17 +35,42 @@ const Gameboard = () => {
       return false;
     }
 
-    // if passed all check, set the ship
+    // if passed all check, setPiece the ship
     allIndex.forEach((index) => {
-      set(index, ship);
+      setPiece(index, ship);
     });
     return true;
   };
+  const receiveAttack = (index) => getSquare(index).hitSquare();
+  const visualizeBoard = () => {
+    // test visualizer
+    const out = getBoard().map((square) => {
+      if (!square.isEmpty()) {
+        if (square.isHit()) {
+          return 'SH';
+        }
+        return 'S';
+      // eslint-disable-next-line no-else-return
+      } else {
+        if (square.isHit()) {
+          return 'EH';
+        }
+        return 'E';
+      }
+    });
+    return out;
+    // the ifs here look kind of messy... Right now we Need isEmptyHit() to come BEFORE isEmpty()
+    // otherwise if its in reverse order, isEmptyHit() will never get evaluated, since isEmpty()
+    // would short-circuit it
+  };
   return {
     getBoard,
-    get,
+    getPiece,
+    getSquare,
     setShip,
     isValid,
+    receiveAttack,
+    visualizeBoard,
   };
 };
 

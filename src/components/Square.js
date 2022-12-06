@@ -4,11 +4,11 @@ const Square = () => {
   const setShip = (ship) => (myShip = ship);
   const getShip = () => myShip;
   const isHit = () => hit;
-  const isEmpty = () => getShip === null;
-  const isEmptyHit = () => isEmpty && isHit;
+  const isEmpty = () => getShip() === null;
+  const isEmptyHit = () => isEmpty() && isHit(); // maybe get rid of this, caller can get confused
   const hitSquare = () => {
     hit = true;
-    if (!isEmpty) {
+    if (!isEmpty()) {
       myShip.hit();
     }
   };
