@@ -23,8 +23,10 @@ const Gameboard = () => {
     }
     // check if allIndex are valid && empty
     // can also use getPiece(index) === null at the end here instead of getSquare(index).isEmpty()
-    const isValidEmpty = allIndex.every((index) => isValid(index) && getSquare(index).isEmpty());
-    if (!isValidEmpty) {
+    const isValidEmptyNotHit = allIndex.every((index) => isValid(index)
+                                                        && getSquare(index).isEmpty()
+                                                        && !getSquare(index).isHit());
+    if (!isValidEmptyNotHit) {
       return false;
     }
 

@@ -21,7 +21,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "", "",{"version":3,"sources":[],"names":[],"mappings":"","sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ":root{\r\n  font-family: Roboto, -apple-system, BlinkMacSystemFont, 'Segoe UI', Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;\r\n  --numSquares: 10;\r\n  --game-grid-size: 400px;\r\n  --game-square-size: calc(var(--game-grid-size)/(var(--numSquares)));\r\n  --border: 3px;\r\n  --empty-no-hit: darkcyan;\r\n  --empty-hit: white;\r\n  --ship-no-hit: darkgray;\r\n  --ship-hit: red;\r\n}\r\n\r\nbody{\r\n  display: grid;\r\n  justify-content: center;\r\n}\r\n\r\n.gameboard{\r\n  width: var(--game-grid-size);\r\n  height: var(--game-grid-size);\r\n  background-color: black;\r\n  display: grid;\r\n  padding: var(--border);\r\n  gap: var(--border);\r\n  grid-template-columns: repeat(10, 1fr);\r\n  grid-template-rows: repeat(10, 1fr);\r\n}\r\n\r\n.gameboard .square {\r\n  /* width: var(--game-square-size);\r\n  height: var(--game-square-size); */\r\n  background-color:darkcyan;\r\n  /* border: 2px solid black; */\r\n}", "",{"version":3,"sources":["webpack://./src/style.css"],"names":[],"mappings":"AAAA;EACE,wIAAwI;EACxI,gBAAgB;EAChB,uBAAuB;EACvB,mEAAmE;EACnE,aAAa;EACb,wBAAwB;EACxB,kBAAkB;EAClB,uBAAuB;EACvB,eAAe;AACjB;;AAEA;EACE,aAAa;EACb,uBAAuB;AACzB;;AAEA;EACE,4BAA4B;EAC5B,6BAA6B;EAC7B,uBAAuB;EACvB,aAAa;EACb,sBAAsB;EACtB,kBAAkB;EAClB,sCAAsC;EACtC,mCAAmC;AACrC;;AAEA;EACE;oCACkC;EAClC,yBAAyB;EACzB,6BAA6B;AAC/B","sourcesContent":[":root{\r\n  font-family: Roboto, -apple-system, BlinkMacSystemFont, 'Segoe UI', Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;\r\n  --numSquares: 10;\r\n  --game-grid-size: 400px;\r\n  --game-square-size: calc(var(--game-grid-size)/(var(--numSquares)));\r\n  --border: 3px;\r\n  --empty-no-hit: darkcyan;\r\n  --empty-hit: white;\r\n  --ship-no-hit: darkgray;\r\n  --ship-hit: red;\r\n}\r\n\r\nbody{\r\n  display: grid;\r\n  justify-content: center;\r\n}\r\n\r\n.gameboard{\r\n  width: var(--game-grid-size);\r\n  height: var(--game-grid-size);\r\n  background-color: black;\r\n  display: grid;\r\n  padding: var(--border);\r\n  gap: var(--border);\r\n  grid-template-columns: repeat(10, 1fr);\r\n  grid-template-rows: repeat(10, 1fr);\r\n}\r\n\r\n.gameboard .square {\r\n  /* width: var(--game-square-size);\r\n  height: var(--game-square-size); */\r\n  background-color:darkcyan;\r\n  /* border: 2px solid black; */\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -528,6 +528,243 @@ function styleTagTransform(css, styleElement) {
 
 module.exports = styleTagTransform;
 
+/***/ }),
+
+/***/ "./src/components/Gameboard.display.js":
+/*!*********************************************!*\
+  !*** ./src/components/Gameboard.display.js ***!
+  \*********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+// each Gameboard needs an 'ally view' where u can see ur own ship setup
+// and a 'enemy view', where you only see the result of hits but NOT ships
+
+const GameboardDisplay = () => {
+  const gameboardAlly = document.querySelector('.gameboard.ally-view');
+  const squareClass = {
+    emptyNoHit: '--empty-no-hit',
+    emptyHit: '--empty-hit',
+    shipNoHit: '--ship-no-hit',
+    shipHit: '--ship-hit',
+  };
+  let squareType = squareClass.emptyNoHit;
+
+  const renderBoardAlly = (gameboard) => {
+    gameboardAlly.replaceChildren();
+
+    gameboard.getBoard().forEach((square) => {
+      const squareEl = document.createElement('div');
+      if (!square.isEmpty()) {
+        if (square.isHit()) {
+          squareType = squareClass.shipHit;
+        }
+        squareType = squareClass.shipNoHit;
+      // eslint-disable-next-line no-else-return
+      } else {
+        if (square.isHit()) {
+          squareType = squareClass.emptyHit;
+        }
+        squareType = squareClass.emptyNoHit;
+      }
+      squareEl.classList.add('square');
+      squareEl.classList.add(squareType);
+      gameboardAlly.appendChild(squareEl);
+    });
+  };
+  return {
+    renderBoardAlly,
+  };
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (GameboardDisplay());
+
+
+/***/ }),
+
+/***/ "./src/components/Gameboard.js":
+/*!*************************************!*\
+  !*** ./src/components/Gameboard.js ***!
+  \*************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _Square__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Square */ "./src/components/Square.js");
+
+
+const Gameboard = () => {
+  // const resetBoard = () => new Array(100).fill(null);
+  const resetBoard = () => {
+    const array = new Array(100);
+    for (let i = 0; i < 100; i += 1) {
+      array[i] = (0,_Square__WEBPACK_IMPORTED_MODULE_0__["default"])();
+    }
+    return array;
+  };
+  const board = resetBoard();
+  // change the top 2 methods i think... we can do setSquare(i, Square) on board ???
+  // not sure how that would combine with initializing the array to 100 tho... so maybe not
+  const getBoard = () => board;
+  const getSquare = (index) => board[index];
+  const setPiece = (index, piece) => (getSquare(index).setShip(piece));
+  const getPiece = (index) => (getSquare(index).getShip());
+  const isValid = (index) => index >= 0 && index < 100;
+  const setShip = (ship, allIndex) => {
+    if (allIndex.length !== ship.getLength()) {
+      return false;
+    }
+    // check if allIndex are valid && empty
+    // can also use getPiece(index) === null at the end here instead of getSquare(index).isEmpty()
+    const isValidEmptyNotHit = allIndex.every((index) => isValid(index)
+                                                        && getSquare(index).isEmpty()
+                                                        && !getSquare(index).isHit());
+    if (!isValidEmptyNotHit) {
+      return false;
+    }
+
+    // check if allIndex have either the same Math.trunc(input/10) or the same % 10
+    const isHoriz = allIndex.every((ind) => Math.trunc(ind / 10) === Math.trunc(allIndex[0] / 10));
+    const isVertical = allIndex.every((e) => e % 10 === allIndex[0] % 10);
+    if (!(isHoriz || isVertical)) {
+      return false;
+    }
+
+    // if passed all check, setPiece the ship
+    allIndex.forEach((index) => {
+      setPiece(index, ship);
+    });
+    return true;
+  };
+  const receiveAttack = (index) => getSquare(index).hitSquare();
+  const visualizeBoard = () => {
+    // test visualizer
+    const out = getBoard().map((square) => {
+      if (!square.isEmpty()) {
+        if (square.isHit()) {
+          return 'SH';
+        }
+        return 'S';
+      // eslint-disable-next-line no-else-return
+      } else {
+        if (square.isHit()) {
+          return 'EH';
+        }
+        return 'E';
+      }
+    });
+    return out;
+    // the ifs here look kind of messy... Right now we Need isEmptyHit() to come BEFORE isEmpty()
+    // otherwise if its in reverse order, isEmptyHit() will never get evaluated, since isEmpty()
+    // would short-circuit it
+  };
+  return {
+    getBoard,
+    getPiece,
+    getSquare,
+    setShip,
+    isValid,
+    receiveAttack,
+    visualizeBoard,
+  };
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Gameboard);
+
+// TODO TODO the setShip portion at the bottom that we were rewruiting seems like
+// it forces me to write too much code.... maybe less it better even if it is worse algo
+
+// HOWEVER this also makes me realize that we are doing this WAYYYYY TOO MESSY
+// we are working with inputs, coordinates, and index
+// and different methods expect a differnt parameter... which is impossible to tell
+// i think it is best to just make all methods work with index.
+// if we want to, we can also have some helper methods here for outside callers, such as
+// inputToIndex() and isInputValid()
+
+// TODO TODO ACTUAL TODO
+// change this whole module so that it works ONLY with index instead of also working with input
+// and cordinates. Makes it simpler
+
+
+/***/ }),
+
+/***/ "./src/components/Player.js":
+/*!**********************************!*\
+  !*** ./src/components/Player.js ***!
+  \**********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _Gameboard__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Gameboard */ "./src/components/Gameboard.js");
+
+
+const Player = (name) => {
+  let myName = name;
+  let myBoard = (0,_Gameboard__WEBPACK_IMPORTED_MODULE_0__["default"])();
+  const setGameboard = (board) => (myBoard = board);
+  const getGameboard = () => myBoard;
+  const getName = () => myName;
+  const setName = (newName) => (myName = newName);
+
+  return {
+    setGameboard,
+    getGameboard,
+    setName,
+    getName,
+  };
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Player);
+
+
+/***/ }),
+
+/***/ "./src/components/Square.js":
+/*!**********************************!*\
+  !*** ./src/components/Square.js ***!
+  \**********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+const Square = () => {
+  let hit = false;
+  let myShip = null;
+  const setShip = (ship) => (myShip = ship);
+  const getShip = () => myShip;
+  const isHit = () => hit;
+  const isEmpty = () => getShip() === null;
+  const isEmptyHit = () => isEmpty() && isHit(); // maybe get rid of this, caller can get confused
+  const hitSquare = () => {
+    hit = true;
+    if (!isEmpty()) {
+      myShip.hit();
+    }
+  };
+
+  return {
+    setShip,
+    getShip,
+    isHit,
+    isEmpty,
+    isEmptyHit,
+    hitSquare,
+  };
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Square);
+
+
 /***/ })
 
 /******/ 	});
@@ -610,22 +847,34 @@ var __webpack_exports__ = {};
   !*** ./src/index.js ***!
   \**********************/
 __webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ "./src/style.css");
+/* harmony import */ var _components_Player__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/Player */ "./src/components/Player.js");
+/* harmony import */ var _components_Gameboard_display__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/Gameboard.display */ "./src/components/Gameboard.display.js");
+/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./style.css */ "./src/style.css");
 
 
-const index = () => {
-  console.log('hi');
-};
 
-index();
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (index);
+// const gameboard1 = document.querySelector('.gameboard.ally-view');
+
+// //clears childs
+// gameboard1.replaceChildren();
+
+// for (let i = 0; i < 100; i += 1) {
+//   const square = document.createElement('div');
+//   square.classList.add('square');
+//   gameboard1.appendChild(square);
+// }
+
+const p1 = (0,_components_Player__WEBPACK_IMPORTED_MODULE_0__["default"])('p1');
+const p1Board = p1.getGameboard();
+_components_Gameboard_display__WEBPACK_IMPORTED_MODULE_1__["default"].renderBoardAlly(p1Board);
+
+console.log('index');
+
+// export default index;
 
 })();
 
 /******/ })()
 ;
-//# sourceMappingURL=main.9212497a5b6a0d137052.js.map
+//# sourceMappingURL=main.53c19b2145e30dbc58b6.js.map
