@@ -1,17 +1,15 @@
 import Square from './Square';
 
 const Gameboard = () => {
-  // const resetBoard = () => new Array(100).fill(null);
+  let board = null;
   const resetBoard = () => {
-    const array = new Array(100);
+    board = new Array(100);
     for (let i = 0; i < 100; i += 1) {
-      array[i] = Square();
+      board[i] = Square();
     }
-    return array;
+    return board;
   };
-  const board = resetBoard();
-  // change the top 2 methods i think... we can do setSquare(i, Square) on board ???
-  // not sure how that would combine with initializing the array to 100 tho... so maybe not
+  resetBoard();
   const getBoard = () => board;
   const getSquare = (index) => board[index];
   const setPiece = (index, piece) => (getSquare(index).setShip(piece));
@@ -73,6 +71,7 @@ const Gameboard = () => {
     isValid,
     receiveAttack,
     visualizeBoard,
+    resetBoard,
   };
 };
 

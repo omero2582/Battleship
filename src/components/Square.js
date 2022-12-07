@@ -5,6 +5,7 @@ const Square = () => {
   const getShip = () => myShip;
   const isHit = () => hit;
   const isEmpty = () => getShip() === null;
+  const hasShip = () => !isEmpty;
   const isEmptyHit = () => isEmpty() && isHit(); // maybe get rid of this, caller can get confused
   const hitSquare = () => {
     hit = true;
@@ -20,6 +21,7 @@ const Square = () => {
     isEmpty,
     isEmptyHit,
     hitSquare,
+    hasShip,
   };
 };
 

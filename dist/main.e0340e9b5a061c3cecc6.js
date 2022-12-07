@@ -21,7 +21,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ":root{\r\n  font-family: Roboto, -apple-system, BlinkMacSystemFont, 'Segoe UI', Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;\r\n  --numSquares: 10;\r\n  --game-grid-size: 400px;\r\n  --game-square-size: calc(var(--game-grid-size)/(var(--numSquares)));\r\n  --border: 3px;\r\n  --empty-no-hit: darkcyan;\r\n  --empty-hit: white;\r\n  --ship-no-hit: darkgray;\r\n  --ship-hit: red;\r\n}\r\n\r\nbody{\r\n  display: grid;\r\n  justify-content: center;\r\n}\r\n\r\n.gameboard{\r\n  width: var(--game-grid-size);\r\n  height: var(--game-grid-size);\r\n  background-color: black;\r\n  display: grid;\r\n  padding: var(--border);\r\n  gap: var(--border);\r\n  grid-template-columns: repeat(10, 1fr);\r\n  grid-template-rows: repeat(10, 1fr);\r\n}\r\n\r\n.gameboard .square {\r\n  /* width: var(--game-square-size);\r\n  height: var(--game-square-size); */\r\n  background-color:darkcyan;\r\n  /* border: 2px solid black; */\r\n}", "",{"version":3,"sources":["webpack://./src/style.css"],"names":[],"mappings":"AAAA;EACE,wIAAwI;EACxI,gBAAgB;EAChB,uBAAuB;EACvB,mEAAmE;EACnE,aAAa;EACb,wBAAwB;EACxB,kBAAkB;EAClB,uBAAuB;EACvB,eAAe;AACjB;;AAEA;EACE,aAAa;EACb,uBAAuB;AACzB;;AAEA;EACE,4BAA4B;EAC5B,6BAA6B;EAC7B,uBAAuB;EACvB,aAAa;EACb,sBAAsB;EACtB,kBAAkB;EAClB,sCAAsC;EACtC,mCAAmC;AACrC;;AAEA;EACE;oCACkC;EAClC,yBAAyB;EACzB,6BAA6B;AAC/B","sourcesContent":[":root{\r\n  font-family: Roboto, -apple-system, BlinkMacSystemFont, 'Segoe UI', Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;\r\n  --numSquares: 10;\r\n  --game-grid-size: 400px;\r\n  --game-square-size: calc(var(--game-grid-size)/(var(--numSquares)));\r\n  --border: 3px;\r\n  --empty-no-hit: darkcyan;\r\n  --empty-hit: white;\r\n  --ship-no-hit: darkgray;\r\n  --ship-hit: red;\r\n}\r\n\r\nbody{\r\n  display: grid;\r\n  justify-content: center;\r\n}\r\n\r\n.gameboard{\r\n  width: var(--game-grid-size);\r\n  height: var(--game-grid-size);\r\n  background-color: black;\r\n  display: grid;\r\n  padding: var(--border);\r\n  gap: var(--border);\r\n  grid-template-columns: repeat(10, 1fr);\r\n  grid-template-rows: repeat(10, 1fr);\r\n}\r\n\r\n.gameboard .square {\r\n  /* width: var(--game-square-size);\r\n  height: var(--game-square-size); */\r\n  background-color:darkcyan;\r\n  /* border: 2px solid black; */\r\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ":root{\r\n  font-family: Roboto, -apple-system, BlinkMacSystemFont, 'Segoe UI', Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;\r\n  --numSquares: 10;\r\n  --game-grid-size: 400px;\r\n  --game-square-size: calc(var(--game-grid-size)/(var(--numSquares)));\r\n  --border: 3px;\r\n  --empty-no-hit: darkcyan;\r\n  --empty-hit: white;\r\n  --ship-no-hit: darkgray;\r\n  --ship-hit: red;\r\n}\r\n\r\nbody{\r\n  display: grid;\r\n  justify-content: center;\r\n}\r\n\r\n.gameboard{\r\n  width: var(--game-grid-size);\r\n  height: var(--game-grid-size);\r\n  background-color: black;\r\n  display: grid;\r\n  padding: var(--border);\r\n  gap: var(--border);\r\n  grid-template-columns: repeat(10, 1fr);\r\n  grid-template-rows: repeat(10, 1fr);\r\n}\r\n\r\n.gameboard .square {\r\n  /* width: var(--game-square-size);\r\n  height: var(--game-square-size); */\r\n  background-color:var(--empty-no-hit);\r\n  /* border: 2px solid black; */\r\n}\r\n\r\n.square.empty-no-hit{\r\n  background-color: var(--empty-no-hit);\r\n}\r\n.square.empty-hit {\r\n  background-color: var(--empty-hit);\r\n}\r\n\r\n.square.ship-no-hit {\r\n  background-color: var(--ship-no-hit);\r\n}\r\n\r\n.square.ship-hit {\r\n  background-color: var(--ship-hit);\r\n}\r\n\r\n.player-view {\r\n  display: grid;\r\n  grid-auto-flow: column;\r\n  column-gap: 40px;\r\n}", "",{"version":3,"sources":["webpack://./src/style.css"],"names":[],"mappings":"AAAA;EACE,wIAAwI;EACxI,gBAAgB;EAChB,uBAAuB;EACvB,mEAAmE;EACnE,aAAa;EACb,wBAAwB;EACxB,kBAAkB;EAClB,uBAAuB;EACvB,eAAe;AACjB;;AAEA;EACE,aAAa;EACb,uBAAuB;AACzB;;AAEA;EACE,4BAA4B;EAC5B,6BAA6B;EAC7B,uBAAuB;EACvB,aAAa;EACb,sBAAsB;EACtB,kBAAkB;EAClB,sCAAsC;EACtC,mCAAmC;AACrC;;AAEA;EACE;oCACkC;EAClC,oCAAoC;EACpC,6BAA6B;AAC/B;;AAEA;EACE,qCAAqC;AACvC;AACA;EACE,kCAAkC;AACpC;;AAEA;EACE,oCAAoC;AACtC;;AAEA;EACE,iCAAiC;AACnC;;AAEA;EACE,aAAa;EACb,sBAAsB;EACtB,gBAAgB;AAClB","sourcesContent":[":root{\r\n  font-family: Roboto, -apple-system, BlinkMacSystemFont, 'Segoe UI', Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;\r\n  --numSquares: 10;\r\n  --game-grid-size: 400px;\r\n  --game-square-size: calc(var(--game-grid-size)/(var(--numSquares)));\r\n  --border: 3px;\r\n  --empty-no-hit: darkcyan;\r\n  --empty-hit: white;\r\n  --ship-no-hit: darkgray;\r\n  --ship-hit: red;\r\n}\r\n\r\nbody{\r\n  display: grid;\r\n  justify-content: center;\r\n}\r\n\r\n.gameboard{\r\n  width: var(--game-grid-size);\r\n  height: var(--game-grid-size);\r\n  background-color: black;\r\n  display: grid;\r\n  padding: var(--border);\r\n  gap: var(--border);\r\n  grid-template-columns: repeat(10, 1fr);\r\n  grid-template-rows: repeat(10, 1fr);\r\n}\r\n\r\n.gameboard .square {\r\n  /* width: var(--game-square-size);\r\n  height: var(--game-square-size); */\r\n  background-color:var(--empty-no-hit);\r\n  /* border: 2px solid black; */\r\n}\r\n\r\n.square.empty-no-hit{\r\n  background-color: var(--empty-no-hit);\r\n}\r\n.square.empty-hit {\r\n  background-color: var(--empty-hit);\r\n}\r\n\r\n.square.ship-no-hit {\r\n  background-color: var(--ship-no-hit);\r\n}\r\n\r\n.square.ship-hit {\r\n  background-color: var(--ship-hit);\r\n}\r\n\r\n.player-view {\r\n  display: grid;\r\n  grid-auto-flow: column;\r\n  column-gap: 40px;\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -544,39 +544,70 @@ __webpack_require__.r(__webpack_exports__);
 // and a 'enemy view', where you only see the result of hits but NOT ships
 
 const GameboardDisplay = () => {
-  const gameboardAlly = document.querySelector('.gameboard.ally-view');
+  // const game = document.querySelector('.game');
+  const p1View = document.querySelector('.player-view.p1');
+  const p2View = document.querySelector('.player-view.p2');
   const squareClass = {
-    emptyNoHit: '--empty-no-hit',
-    emptyHit: '--empty-hit',
-    shipNoHit: '--ship-no-hit',
-    shipHit: '--ship-hit',
+    emptyNoHit: 'empty-no-hit',
+    emptyHit: 'empty-hit',
+    shipNoHit: 'ship-no-hit',
+    shipHit: 'ship-hit',
   };
   let squareType = squareClass.emptyNoHit;
 
-  const renderBoardAlly = (gameboard) => {
-    gameboardAlly.replaceChildren();
-
+  const getBoardElement = (gameboard, isAlly) => {
+    const gameboardEl = document.createElement('div');
+    const allyOrEnemyClass = isAlly ? 'ally-view' : 'enemy-view';
+    gameboardEl.classList.add('gameboard', allyOrEnemyClass);
     gameboard.getBoard().forEach((square) => {
       const squareEl = document.createElement('div');
-      if (!square.isEmpty()) {
-        if (square.isHit()) {
-          squareType = squareClass.shipHit;
-        }
-        squareType = squareClass.shipNoHit;
-      // eslint-disable-next-line no-else-return
-      } else {
+      squareType = squareClass.emptyNoHit;
+      if (square.isEmpty()) {
         if (square.isHit()) {
           squareType = squareClass.emptyHit;
         }
         squareType = squareClass.emptyNoHit;
+      // eslint-disable-next-line no-else-return
+      } else {
+        if (square.isHit()) {
+          squareType = squareClass.shipHit;
+        }
+        squareType = isAlly ? squareClass.shipNoHit : squareClass.emptyNoHit;
       }
-      squareEl.classList.add('square');
-      squareEl.classList.add(squareType);
-      gameboardAlly.appendChild(squareEl);
+      squareEl.classList.add('square', squareType);
+      gameboardEl.appendChild(squareEl);
     });
+    return gameboardEl;
   };
+
+  const getBoardContainerElement = (gameboardElement, boardTitle) => {
+    const boardContainer = document.createElement('div');
+    const boardTitleEl = document.createElement('div');
+    boardTitleEl.textContent = boardTitle;
+    boardContainer.appendChild(boardTitleEl);
+    boardContainer.appendChild(gameboardElement);
+    return boardContainer;
+  };
+
+  const renderView = (allyBoard, enemyBoard, isPlayer1) => {
+    const playerView = isPlayer1 ? p1View : p2View;
+    playerView.replaceChildren();
+    const allyBoardEl = getBoardElement(allyBoard, true);
+    const enemyBoardEl = getBoardElement(enemyBoard, false);
+    //
+    const allyBoardContainer = getBoardContainerElement(allyBoardEl, 'Ally Board');
+    const enemyBoardContainer = getBoardContainerElement(enemyBoardEl, 'Enemy Board');
+    playerView.appendChild(allyBoardContainer);
+    playerView.appendChild(enemyBoardContainer);
+    //
+    // p1View.appendChild(p1AllyBoard);
+    // p1View.appendChild(p2EnemyBoard);
+  };
+  const renderP1View = (allyBoard, enemyBoard) => renderView(allyBoard, enemyBoard, true);
+  const renderP2View = (allyBoard, enemyBoard) => renderView(allyBoard, enemyBoard, false);
   return {
-    renderBoardAlly,
+    renderP1View,
+    renderP2View,
   };
 };
 
@@ -599,17 +630,15 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const Gameboard = () => {
-  // const resetBoard = () => new Array(100).fill(null);
+  let board = null;
   const resetBoard = () => {
-    const array = new Array(100);
+    board = new Array(100);
     for (let i = 0; i < 100; i += 1) {
-      array[i] = (0,_Square__WEBPACK_IMPORTED_MODULE_0__["default"])();
+      board[i] = (0,_Square__WEBPACK_IMPORTED_MODULE_0__["default"])();
     }
-    return array;
+    return board;
   };
-  const board = resetBoard();
-  // change the top 2 methods i think... we can do setSquare(i, Square) on board ???
-  // not sure how that would combine with initializing the array to 100 tho... so maybe not
+  resetBoard();
   const getBoard = () => board;
   const getSquare = (index) => board[index];
   const setPiece = (index, piece) => (getSquare(index).setShip(piece));
@@ -671,6 +700,7 @@ const Gameboard = () => {
     isValid,
     receiveAttack,
     visualizeBoard,
+    resetBoard,
   };
 };
 
@@ -704,6 +734,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _Gameboard__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Gameboard */ "./src/components/Gameboard.js");
+/* harmony import */ var _Ship__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Ship */ "./src/components/Ship.js");
+
 
 
 const Player = (name) => {
@@ -713,16 +745,62 @@ const Player = (name) => {
   const getGameboard = () => myBoard;
   const getName = () => myName;
   const setName = (newName) => (myName = newName);
+  const initializePresetShips = () => {
+    // someting
+    getGameboard().resetBoard();
+    getGameboard().setShip((0,_Ship__WEBPACK_IMPORTED_MODULE_1__["default"])(2), [0, 1]);
+    getGameboard().setShip((0,_Ship__WEBPACK_IMPORTED_MODULE_1__["default"])(3), [6, 16, 26]);
+    getGameboard().setShip((0,_Ship__WEBPACK_IMPORTED_MODULE_1__["default"])(4), [45, 46, 47, 48]);
+    getGameboard().setShip((0,_Ship__WEBPACK_IMPORTED_MODULE_1__["default"])(5), [81, 82, 83, 84, 85]);
+  };
 
   return {
     setGameboard,
     getGameboard,
     setName,
     getName,
+    initializePresetShips,
   };
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Player);
+
+
+/***/ }),
+
+/***/ "./src/components/Ship.js":
+/*!********************************!*\
+  !*** ./src/components/Ship.js ***!
+  \********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+const Ship = (length) => {
+  let hits = 0;
+  const getHits = () => hits;
+  return {
+    getLength: () => length,
+    getHits,
+    hit() {
+      hits += 1;
+      return getHits();
+    },
+    isSunk: () => hits >= length,
+    // allowedSetPosition: (index) => {
+    //   const [rightSet, leftSet, downSet, upSet] = out;
+    //   const [rightInc, leftInc, downInc, upInc];
+    //   for (let i = index; i < length; i += 1) {
+    //     rightSet.push(i);
+    //     downSet.push()
+    //   }
+    // },
+  };
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Ship);
 
 
 /***/ }),
@@ -744,6 +822,7 @@ const Square = () => {
   const getShip = () => myShip;
   const isHit = () => hit;
   const isEmpty = () => getShip() === null;
+  const hasShip = () => !isEmpty;
   const isEmptyHit = () => isEmpty() && isHit(); // maybe get rid of this, caller can get confused
   const hitSquare = () => {
     hit = true;
@@ -759,6 +838,7 @@ const Square = () => {
     isEmpty,
     isEmptyHit,
     hitSquare,
+    hasShip,
   };
 };
 
@@ -849,25 +929,29 @@ var __webpack_exports__ = {};
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_Player__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/Player */ "./src/components/Player.js");
 /* harmony import */ var _components_Gameboard_display__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/Gameboard.display */ "./src/components/Gameboard.display.js");
-/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./style.css */ "./src/style.css");
+/* harmony import */ var _components_Ship__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/Ship */ "./src/components/Ship.js");
+/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./style.css */ "./src/style.css");
 
 
 
 
-// const gameboard1 = document.querySelector('.gameboard.ally-view');
-
-// //clears childs
-// gameboard1.replaceChildren();
-
-// for (let i = 0; i < 100; i += 1) {
-//   const square = document.createElement('div');
-//   square.classList.add('square');
-//   gameboard1.appendChild(square);
-// }
 
 const p1 = (0,_components_Player__WEBPACK_IMPORTED_MODULE_0__["default"])('p1');
+const p2 = (0,_components_Player__WEBPACK_IMPORTED_MODULE_0__["default"])('p2');
 const p1Board = p1.getGameboard();
-_components_Gameboard_display__WEBPACK_IMPORTED_MODULE_1__["default"].renderBoardAlly(p1Board);
+// p1Board.setShip(Ship(2), [0, 1]);
+p1.initializePresetShips();
+const p2Board = p2.getGameboard();
+_components_Gameboard_display__WEBPACK_IMPORTED_MODULE_1__["default"].renderP1View(p1Board, p2Board);
+_components_Gameboard_display__WEBPACK_IMPORTED_MODULE_1__["default"].renderP2View(p2Board, p1Board);
+// TODO i think pass the player insted of the board... then getGameboard() INSIDE the function.
+// this way we can extract things like name inside the function
+// and more IMPORTANTLY, we can add a "() => player" to the click handler of the squares
+// AKA the gameboard renders will be able to tell me which player it comes from
+
+// .... Although now that i think about it, its kinda strange that I cant otherwise tell...
+// very sleepy, but i think its because we have a player -> gameboard relationship, and the
+// display is completely separate... so theres no connection to the player that owns the gameboard
 
 console.log('index');
 
@@ -877,4 +961,4 @@ console.log('index');
 
 /******/ })()
 ;
-//# sourceMappingURL=main.53c19b2145e30dbc58b6.js.map
+//# sourceMappingURL=main.e0340e9b5a061c3cecc6.js.map

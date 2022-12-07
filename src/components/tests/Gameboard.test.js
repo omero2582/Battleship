@@ -1,7 +1,7 @@
-import Square from './Square';
-import Gameboard from './Gameboard'
-import Ship from './Ship';
-import {inputToIndex, allInputsToIndex} from './input';
+import Square from '../Square';
+import Gameboard from '../Gameboard'
+import Ship from '../Ship';
+import {inputToIndex, allInputsToIndex} from '../input';
 describe('Gameboard', () =>{
   it('board starts empty', () =>{
     const board = Gameboard();

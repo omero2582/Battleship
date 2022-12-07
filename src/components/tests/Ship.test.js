@@ -1,4 +1,4 @@
-import Ship from './Ship'
+import Ship from '../Ship'
 
 describe('Ship', () => {
   it('Ship length matches instantiation', () => {

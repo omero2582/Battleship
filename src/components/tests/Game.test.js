@@ -1,5 +1,5 @@
-import Game from "./Game";
-import Player from "./Player";
+import Game from "../Game";
+import Player from "../Player";
 
 describe('Game', () => {
   it('nextTurn switches between players', () => {

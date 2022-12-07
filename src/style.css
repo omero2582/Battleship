@@ -29,6 +29,27 @@ body{
 .gameboard .square {
   /* width: var(--game-square-size);
   height: var(--game-square-size); */
-  background-color:darkcyan;
+  background-color:var(--empty-no-hit);
   /* border: 2px solid black; */
+}
+
+.square.empty-no-hit{
+  background-color: var(--empty-no-hit);
+}
+.square.empty-hit {
+  background-color: var(--empty-hit);
+}
+
+.square.ship-no-hit {
+  background-color: var(--ship-no-hit);
+}
+
+.square.ship-hit {
+  background-color: var(--ship-hit);
+}
+
+.player-view {
+  display: grid;
+  grid-auto-flow: column;
+  column-gap: 40px;
 }
