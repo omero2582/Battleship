@@ -1,7 +1,9 @@
+import Ship from './Ship';
 import Square from './Square';
 
 const Gameboard = () => {
   let board = null;
+  let myShips = [];
   const resetBoard = () => {
     board = new Array(100);
     for (let i = 0; i < 100; i += 1) {
@@ -15,12 +17,12 @@ const Gameboard = () => {
   const setPiece = (index, piece) => (getSquare(index).setShip(piece));
   const getPiece = (index) => (getSquare(index).getShip());
   const isValid = (index) => index >= 0 && index < 100;
-  const setShip = (ship, allIndex) => {
+  const getAllShips = () => myShips;
+  const setShip = (allIndex, ship = Ship(allIndex.length)) => {
     if (allIndex.length !== ship.getLength()) {
       return false;
     }
     // check if allIndex are valid && empty
-    // can also use getPiece(index) === null at the end here instead of getSquare(index).isEmpty()
     const isValidEmptyNotHit = allIndex.every((index) => isValid(index)
                                                         && getSquare(index).isEmpty()
                                                         && !getSquare(index).isHit());
@@ -35,11 +37,16 @@ const Gameboard = () => {
       return false;
     }
 
-    // if passed all check, setPiece the ship
+    // if passed all check, setPiece the ship, and add to myShips
     allIndex.forEach((index) => {
       setPiece(index, ship);
     });
+    myShips.push(ship);
     return true;
+  };
+  const setMultipleShips = (...args) => {
+    // ex ([1,2,3], [40,41,42])
+    args.forEach((cordinatesArray) => setShip(cordinatesArray));
   };
   const receiveAttack = (index) => getSquare(index).hitSquare();
   const visualizeBoard = () => {
@@ -67,7 +74,9 @@ const Gameboard = () => {
     getBoard,
     getPiece,
     getSquare,
+    getAllShips,
     setShip,
+    setMultipleShips,
     isValid,
     receiveAttack,
     visualizeBoard,

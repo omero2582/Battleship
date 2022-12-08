@@ -6,11 +6,12 @@ const Square = () => {
   const isHit = () => hit;
   const isEmpty = () => getShip() === null;
   const hasShip = () => !isEmpty;
-  const isEmptyHit = () => isEmpty() && isHit(); // maybe get rid of this, caller can get confused
   const hitSquare = () => {
     hit = true;
+    console.log('hit');
     if (!isEmpty()) {
       myShip.hit();
+      console.log('hit ship');
     }
   };
 
@@ -19,7 +20,6 @@ const Square = () => {
     getShip,
     isHit,
     isEmpty,
-    isEmptyHit,
     hitSquare,
     hasShip,
   };

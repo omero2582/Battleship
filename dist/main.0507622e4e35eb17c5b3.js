@@ -21,7 +21,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ":root{\r\n  font-family: Roboto, -apple-system, BlinkMacSystemFont, 'Segoe UI', Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;\r\n  --numSquares: 10;\r\n  --game-grid-size: 400px;\r\n  --game-square-size: calc(var(--game-grid-size)/(var(--numSquares)));\r\n  --border: 3px;\r\n  --empty-no-hit: darkcyan;\r\n  --empty-hit: white;\r\n  --ship-no-hit: darkgray;\r\n  --ship-hit: red;\r\n}\r\n\r\nbody{\r\n  display: grid;\r\n  justify-content: center;\r\n}\r\n\r\n.gameboard{\r\n  width: var(--game-grid-size);\r\n  height: var(--game-grid-size);\r\n  background-color: black;\r\n  display: grid;\r\n  padding: var(--border);\r\n  gap: var(--border);\r\n  grid-template-columns: repeat(10, 1fr);\r\n  grid-template-rows: repeat(10, 1fr);\r\n}\r\n\r\n.gameboard .square {\r\n  /* width: var(--game-square-size);\r\n  height: var(--game-square-size); */\r\n  background-color:var(--empty-no-hit);\r\n  /* border: 2px solid black; */\r\n}\r\n\r\n.square.empty-no-hit{\r\n  background-color: var(--empty-no-hit);\r\n}\r\n.square.empty-hit {\r\n  background-color: var(--empty-hit);\r\n}\r\n\r\n.square.ship-no-hit {\r\n  background-color: var(--ship-no-hit);\r\n}\r\n\r\n.square.ship-hit {\r\n  background-color: var(--ship-hit);\r\n}\r\n\r\n.player-view {\r\n  display: grid;\r\n  grid-auto-flow: column;\r\n  column-gap: 40px;\r\n}", "",{"version":3,"sources":["webpack://./src/style.css"],"names":[],"mappings":"AAAA;EACE,wIAAwI;EACxI,gBAAgB;EAChB,uBAAuB;EACvB,mEAAmE;EACnE,aAAa;EACb,wBAAwB;EACxB,kBAAkB;EAClB,uBAAuB;EACvB,eAAe;AACjB;;AAEA;EACE,aAAa;EACb,uBAAuB;AACzB;;AAEA;EACE,4BAA4B;EAC5B,6BAA6B;EAC7B,uBAAuB;EACvB,aAAa;EACb,sBAAsB;EACtB,kBAAkB;EAClB,sCAAsC;EACtC,mCAAmC;AACrC;;AAEA;EACE;oCACkC;EAClC,oCAAoC;EACpC,6BAA6B;AAC/B;;AAEA;EACE,qCAAqC;AACvC;AACA;EACE,kCAAkC;AACpC;;AAEA;EACE,oCAAoC;AACtC;;AAEA;EACE,iCAAiC;AACnC;;AAEA;EACE,aAAa;EACb,sBAAsB;EACtB,gBAAgB;AAClB","sourcesContent":[":root{\r\n  font-family: Roboto, -apple-system, BlinkMacSystemFont, 'Segoe UI', Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;\r\n  --numSquares: 10;\r\n  --game-grid-size: 400px;\r\n  --game-square-size: calc(var(--game-grid-size)/(var(--numSquares)));\r\n  --border: 3px;\r\n  --empty-no-hit: darkcyan;\r\n  --empty-hit: white;\r\n  --ship-no-hit: darkgray;\r\n  --ship-hit: red;\r\n}\r\n\r\nbody{\r\n  display: grid;\r\n  justify-content: center;\r\n}\r\n\r\n.gameboard{\r\n  width: var(--game-grid-size);\r\n  height: var(--game-grid-size);\r\n  background-color: black;\r\n  display: grid;\r\n  padding: var(--border);\r\n  gap: var(--border);\r\n  grid-template-columns: repeat(10, 1fr);\r\n  grid-template-rows: repeat(10, 1fr);\r\n}\r\n\r\n.gameboard .square {\r\n  /* width: var(--game-square-size);\r\n  height: var(--game-square-size); */\r\n  background-color:var(--empty-no-hit);\r\n  /* border: 2px solid black; */\r\n}\r\n\r\n.square.empty-no-hit{\r\n  background-color: var(--empty-no-hit);\r\n}\r\n.square.empty-hit {\r\n  background-color: var(--empty-hit);\r\n}\r\n\r\n.square.ship-no-hit {\r\n  background-color: var(--ship-no-hit);\r\n}\r\n\r\n.square.ship-hit {\r\n  background-color: var(--ship-hit);\r\n}\r\n\r\n.player-view {\r\n  display: grid;\r\n  grid-auto-flow: column;\r\n  column-gap: 40px;\r\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ":root{\r\n  font-family: Roboto, -apple-system, BlinkMacSystemFont, 'Segoe UI', Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;\r\n  --numSquares: 10;\r\n  --game-grid-size: 400px;\r\n  --game-square-size: calc(var(--game-grid-size)/(var(--numSquares)));\r\n  --border: 3px;\r\n  --empty-no-hit: darkcyan;\r\n  --empty-hit: white;\r\n  --ship-no-hit: darkgray;\r\n  --ship-hit: red;\r\n}\r\n\r\nbody{\r\n  display: grid;\r\n  justify-content: center;\r\n}\r\n\r\n.gameboard{\r\n  width: var(--game-grid-size);\r\n  height: var(--game-grid-size);\r\n  background-color: black;\r\n  display: grid;\r\n  padding: var(--border);\r\n  gap: var(--border);\r\n  grid-template-columns: repeat(10, 1fr);\r\n  grid-template-rows: repeat(10, 1fr);\r\n}\r\n\r\n.gameboard .square {\r\n  /* width: var(--game-square-size);\r\n  height: var(--game-square-size); */\r\n  background-color:var(--empty-no-hit);\r\n  /* border: 2px solid black; */\r\n}\r\n\r\n.square.no-hit-empty{\r\n  background-color: var(--empty-no-hit);\r\n}\r\n.square.hit-empty {\r\n  background-color: var(--empty-hit);\r\n}\r\n\r\n.square.no-hit-ship {\r\n  background-color: var(--ship-no-hit);\r\n}\r\n\r\n.square.hit-ship {\r\n  background-color: var(--ship-hit);\r\n}\r\n\r\n.player-view {\r\n  display: grid;\r\n  grid-auto-flow: column;\r\n  column-gap: 40px;\r\n}", "",{"version":3,"sources":["webpack://./src/style.css"],"names":[],"mappings":"AAAA;EACE,wIAAwI;EACxI,gBAAgB;EAChB,uBAAuB;EACvB,mEAAmE;EACnE,aAAa;EACb,wBAAwB;EACxB,kBAAkB;EAClB,uBAAuB;EACvB,eAAe;AACjB;;AAEA;EACE,aAAa;EACb,uBAAuB;AACzB;;AAEA;EACE,4BAA4B;EAC5B,6BAA6B;EAC7B,uBAAuB;EACvB,aAAa;EACb,sBAAsB;EACtB,kBAAkB;EAClB,sCAAsC;EACtC,mCAAmC;AACrC;;AAEA;EACE;oCACkC;EAClC,oCAAoC;EACpC,6BAA6B;AAC/B;;AAEA;EACE,qCAAqC;AACvC;AACA;EACE,kCAAkC;AACpC;;AAEA;EACE,oCAAoC;AACtC;;AAEA;EACE,iCAAiC;AACnC;;AAEA;EACE,aAAa;EACb,sBAAsB;EACtB,gBAAgB;AAClB","sourcesContent":[":root{\r\n  font-family: Roboto, -apple-system, BlinkMacSystemFont, 'Segoe UI', Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;\r\n  --numSquares: 10;\r\n  --game-grid-size: 400px;\r\n  --game-square-size: calc(var(--game-grid-size)/(var(--numSquares)));\r\n  --border: 3px;\r\n  --empty-no-hit: darkcyan;\r\n  --empty-hit: white;\r\n  --ship-no-hit: darkgray;\r\n  --ship-hit: red;\r\n}\r\n\r\nbody{\r\n  display: grid;\r\n  justify-content: center;\r\n}\r\n\r\n.gameboard{\r\n  width: var(--game-grid-size);\r\n  height: var(--game-grid-size);\r\n  background-color: black;\r\n  display: grid;\r\n  padding: var(--border);\r\n  gap: var(--border);\r\n  grid-template-columns: repeat(10, 1fr);\r\n  grid-template-rows: repeat(10, 1fr);\r\n}\r\n\r\n.gameboard .square {\r\n  /* width: var(--game-square-size);\r\n  height: var(--game-square-size); */\r\n  background-color:var(--empty-no-hit);\r\n  /* border: 2px solid black; */\r\n}\r\n\r\n.square.no-hit-empty{\r\n  background-color: var(--empty-no-hit);\r\n}\r\n.square.hit-empty {\r\n  background-color: var(--empty-hit);\r\n}\r\n\r\n.square.no-hit-ship {\r\n  background-color: var(--ship-no-hit);\r\n}\r\n\r\n.square.hit-ship {\r\n  background-color: var(--ship-hit);\r\n}\r\n\r\n.player-view {\r\n  display: grid;\r\n  grid-auto-flow: column;\r\n  column-gap: 40px;\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -530,6 +530,87 @@ module.exports = styleTagTransform;
 
 /***/ }),
 
+/***/ "./src/components/Game.js":
+/*!********************************!*\
+  !*** ./src/components/Game.js ***!
+  \********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _helpers_pubsub__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../helpers/pubsub */ "./src/helpers/pubsub.js");
+/* harmony import */ var _Player__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Player */ "./src/components/Player.js");
+/* harmony import */ var _Gameboard_display__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Gameboard.display */ "./src/components/Gameboard.display.js");
+
+
+
+
+const Game = (p1, p2) => {
+  const players = [p1, p2];
+  let attackPlayer;
+  let defendPlayer;
+  let winner;
+  const renderPlayers = () => {
+    _Gameboard_display__WEBPACK_IMPORTED_MODULE_2__["default"].renderP1View(p1, p2);
+    _Gameboard_display__WEBPACK_IMPORTED_MODULE_2__["default"].renderP2View(p2, p1);
+    console.log('render');
+  };
+  const getAllPlayers = () => players;
+  const endGame = () => {
+    console.log(`Game Over. ${winner.getName()} Wins`);
+    // For now we are not really 'ENDING' the game... we are just not rendering or passing turn
+    // Which means it is permanently winner's turn, but I am not showing the results from the hits
+    // NEED To actually end the game somehow.... and show a screen that lets me restart the game..
+
+    // something like that
+    // have to think about this because right now all the square elements have click listeners
+    // But I dont want to immediately render a diff page, bc I want ppl to be able to look
+    // at the Game after it ends.. So probably just renderPlayerViws() but have a method that
+    // DOESNT add the action listeners... soemthign like that
+  };
+  const nextTurn = () => {
+    defendPlayer = attackPlayer || p2;
+    attackPlayer = attackPlayer === p1 ? p2 : p1;
+    console.log(`${attackPlayer.getName()}'s turn`);
+    renderPlayers();
+  };
+  const endTurn = () => {
+    if (defendPlayer.isAllShipsShunk()) {
+      winner = attackPlayer;
+      endGame();
+    } else {
+      nextTurn();
+    }
+  };
+  const onSquareClick = ({ player, index }) => {
+    console.log(index);
+    if (player === defendPlayer) {
+      player.getGameboard().receiveAttack(index);
+      endTurn();
+    }
+  };
+  const initialize = () => {
+    console.log('game start');
+    p1.initializePresetShips();
+    p2.initializePresetShips2();
+    nextTurn();
+  };
+  initialize();
+  // event bind
+  _helpers_pubsub__WEBPACK_IMPORTED_MODULE_0__["default"].on('squareClick', onSquareClick);
+  return {
+    nextTurn,
+    getAllPlayers,
+  };
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Game);
+
+
+/***/ }),
+
 /***/ "./src/components/Gameboard.display.js":
 /*!*********************************************!*\
   !*** ./src/components/Gameboard.display.js ***!
@@ -540,41 +621,41 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var _helpers_pubsub__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../helpers/pubsub */ "./src/helpers/pubsub.js");
 // each Gameboard needs an 'ally view' where u can see ur own ship setup
 // and a 'enemy view', where you only see the result of hits but NOT ships
 
+
 const GameboardDisplay = () => {
-  // const game = document.querySelector('.game');
   const p1View = document.querySelector('.player-view.p1');
   const p2View = document.querySelector('.player-view.p2');
   const squareClass = {
-    emptyNoHit: 'empty-no-hit',
-    emptyHit: 'empty-hit',
-    shipNoHit: 'ship-no-hit',
-    shipHit: 'ship-hit',
+    noHitEmpty: 'no-hit-empty',
+    noHitShip: 'no-hit-ship',
+    hitEmpty: 'hit-empty',
+    hitShip: 'hit-ship',
   };
-  let squareType = squareClass.emptyNoHit;
-
-  const getBoardElement = (gameboard, isAlly) => {
+  const getSquareElement = (square, isAlly) => {
+    const squareEl = document.createElement('div');
+    let squareType = squareClass.noHitEmpty;
+    if (!square.isHit()) {
+      squareType = !square.isEmpty() && isAlly ? squareClass.noHitShip : squareClass.noHitEmpty;
+    } else {
+      squareType = square.isEmpty() ? squareClass.hitEmpty : squareClass.hitShip;
+    }
+    squareEl.classList.add('square', squareType);
+    return squareEl;
+  };
+  const getBoardElement = (player, isAlly) => {
+    const gameboard = player.getGameboard();
     const gameboardEl = document.createElement('div');
     const allyOrEnemyClass = isAlly ? 'ally-view' : 'enemy-view';
     gameboardEl.classList.add('gameboard', allyOrEnemyClass);
-    gameboard.getBoard().forEach((square) => {
-      const squareEl = document.createElement('div');
-      squareType = squareClass.emptyNoHit;
-      if (square.isEmpty()) {
-        if (square.isHit()) {
-          squareType = squareClass.emptyHit;
-        }
-        squareType = squareClass.emptyNoHit;
-      // eslint-disable-next-line no-else-return
-      } else {
-        if (square.isHit()) {
-          squareType = squareClass.shipHit;
-        }
-        squareType = isAlly ? squareClass.shipNoHit : squareClass.emptyNoHit;
+    gameboard.getBoard().forEach((square, index) => {
+      const squareEl = getSquareElement(square, isAlly);
+      if (!isAlly) {
+        squareEl.addEventListener('click', () => _helpers_pubsub__WEBPACK_IMPORTED_MODULE_0__["default"].emit('squareClick', { player, index }));
       }
-      squareEl.classList.add('square', squareType);
       gameboardEl.appendChild(squareEl);
     });
     return gameboardEl;
@@ -589,19 +670,16 @@ const GameboardDisplay = () => {
     return boardContainer;
   };
 
-  const renderView = (allyBoard, enemyBoard, isPlayer1) => {
+  const renderView = (allyPlayer, enemyPlayer, isPlayer1) => {
     const playerView = isPlayer1 ? p1View : p2View;
     playerView.replaceChildren();
-    const allyBoardEl = getBoardElement(allyBoard, true);
-    const enemyBoardEl = getBoardElement(enemyBoard, false);
+    const allyBoardEl = getBoardElement(allyPlayer, true);
+    const enemyBoardEl = getBoardElement(enemyPlayer, false);
     //
     const allyBoardContainer = getBoardContainerElement(allyBoardEl, 'Ally Board');
     const enemyBoardContainer = getBoardContainerElement(enemyBoardEl, 'Enemy Board');
     playerView.appendChild(allyBoardContainer);
     playerView.appendChild(enemyBoardContainer);
-    //
-    // p1View.appendChild(p1AllyBoard);
-    // p1View.appendChild(p2EnemyBoard);
   };
   const renderP1View = (allyBoard, enemyBoard) => renderView(allyBoard, enemyBoard, true);
   const renderP2View = (allyBoard, enemyBoard) => renderView(allyBoard, enemyBoard, false);
@@ -626,15 +704,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _Square__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Square */ "./src/components/Square.js");
+/* harmony import */ var _Ship__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Ship */ "./src/components/Ship.js");
+/* harmony import */ var _Square__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Square */ "./src/components/Square.js");
+
 
 
 const Gameboard = () => {
   let board = null;
+  let myShips = [];
   const resetBoard = () => {
     board = new Array(100);
     for (let i = 0; i < 100; i += 1) {
-      board[i] = (0,_Square__WEBPACK_IMPORTED_MODULE_0__["default"])();
+      board[i] = (0,_Square__WEBPACK_IMPORTED_MODULE_1__["default"])();
     }
     return board;
   };
@@ -644,12 +725,12 @@ const Gameboard = () => {
   const setPiece = (index, piece) => (getSquare(index).setShip(piece));
   const getPiece = (index) => (getSquare(index).getShip());
   const isValid = (index) => index >= 0 && index < 100;
-  const setShip = (ship, allIndex) => {
+  const getAllShips = () => myShips;
+  const setShip = (allIndex, ship = (0,_Ship__WEBPACK_IMPORTED_MODULE_0__["default"])(allIndex.length)) => {
     if (allIndex.length !== ship.getLength()) {
       return false;
     }
     // check if allIndex are valid && empty
-    // can also use getPiece(index) === null at the end here instead of getSquare(index).isEmpty()
     const isValidEmptyNotHit = allIndex.every((index) => isValid(index)
                                                         && getSquare(index).isEmpty()
                                                         && !getSquare(index).isHit());
@@ -664,11 +745,16 @@ const Gameboard = () => {
       return false;
     }
 
-    // if passed all check, setPiece the ship
+    // if passed all check, setPiece the ship, and add to myShips
     allIndex.forEach((index) => {
       setPiece(index, ship);
     });
+    myShips.push(ship);
     return true;
+  };
+  const setMultipleShips = (...args) => {
+    // ex ([1,2,3], [40,41,42])
+    args.forEach((cordinatesArray) => setShip(cordinatesArray));
   };
   const receiveAttack = (index) => getSquare(index).hitSquare();
   const visualizeBoard = () => {
@@ -696,7 +782,9 @@ const Gameboard = () => {
     getBoard,
     getPiece,
     getSquare,
+    getAllShips,
     setShip,
+    setMultipleShips,
     isValid,
     receiveAttack,
     visualizeBoard,
@@ -745,13 +833,21 @@ const Player = (name) => {
   const getGameboard = () => myBoard;
   const getName = () => myName;
   const setName = (newName) => (myName = newName);
+  const isAllShipsShunk = () => {
+    const out = getGameboard().getAllShips().every((ship) => ship.isSunk());
+    if (out) {
+      console.log(`All ships have sunk for player: ${name}`);
+    }
+    return out;
+  };
   const initializePresetShips = () => {
-    // someting
     getGameboard().resetBoard();
-    getGameboard().setShip((0,_Ship__WEBPACK_IMPORTED_MODULE_1__["default"])(2), [0, 1]);
-    getGameboard().setShip((0,_Ship__WEBPACK_IMPORTED_MODULE_1__["default"])(3), [6, 16, 26]);
-    getGameboard().setShip((0,_Ship__WEBPACK_IMPORTED_MODULE_1__["default"])(4), [45, 46, 47, 48]);
-    getGameboard().setShip((0,_Ship__WEBPACK_IMPORTED_MODULE_1__["default"])(5), [81, 82, 83, 84, 85]);
+    getGameboard().setMultipleShips([0, 1], [6, 16, 26], [45, 46, 47, 48], [81, 82, 83, 84, 85]);
+  };
+
+  const initializePresetShips2 = () => {
+    getGameboard().resetBoard();
+    getGameboard().setMultipleShips([55, 65], [9, 19, 29], [31, 32, 33, 34], [95, 96, 97, 98, 99]);
   };
 
   return {
@@ -760,6 +856,8 @@ const Player = (name) => {
     setName,
     getName,
     initializePresetShips,
+    initializePresetShips2,
+    isAllShipsShunk,
   };
 };
 
@@ -823,11 +921,12 @@ const Square = () => {
   const isHit = () => hit;
   const isEmpty = () => getShip() === null;
   const hasShip = () => !isEmpty;
-  const isEmptyHit = () => isEmpty() && isHit(); // maybe get rid of this, caller can get confused
   const hitSquare = () => {
     hit = true;
+    console.log('hit');
     if (!isEmpty()) {
       myShip.hit();
+      console.log('hit ship');
     }
   };
 
@@ -836,13 +935,55 @@ const Square = () => {
     getShip,
     isHit,
     isEmpty,
-    isEmptyHit,
     hitSquare,
     hasShip,
   };
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Square);
+
+
+/***/ }),
+
+/***/ "./src/helpers/pubsub.js":
+/*!*******************************!*\
+  !*** ./src/helpers/pubsub.js ***!
+  \*******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* eslint-disable no-plusplus */
+// events - a super-basic Javascript (publish subscribe) pattern
+
+const events = {
+  events: {},
+  on(eventName, fn) {
+    this.events[eventName] = this.events[eventName] || [];
+    this.events[eventName].push(fn);
+  },
+  off(eventName, fn) {
+    if (this.events[eventName]) {
+      for (let i = 0; i < this.events[eventName].length; i++) {
+        if (this.events[eventName][i] === fn) {
+          this.events[eventName].splice(i, 1);
+          break;
+        }
+      }
+    }
+  },
+  emit(eventName, data) {
+    if (this.events[eventName]) {
+      this.events[eventName].forEach((fn) => {
+        fn(data);
+      });
+    }
+  },
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (events);
 
 
 /***/ })
@@ -930,7 +1071,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_Player__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/Player */ "./src/components/Player.js");
 /* harmony import */ var _components_Gameboard_display__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/Gameboard.display */ "./src/components/Gameboard.display.js");
 /* harmony import */ var _components_Ship__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/Ship */ "./src/components/Ship.js");
-/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./style.css */ "./src/style.css");
+/* harmony import */ var _helpers_pubsub__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./helpers/pubsub */ "./src/helpers/pubsub.js");
+/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./style.css */ "./src/style.css");
+/* harmony import */ var _components_Game__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/Game */ "./src/components/Game.js");
+
+
 
 
 
@@ -938,12 +1083,8 @@ __webpack_require__.r(__webpack_exports__);
 
 const p1 = (0,_components_Player__WEBPACK_IMPORTED_MODULE_0__["default"])('p1');
 const p2 = (0,_components_Player__WEBPACK_IMPORTED_MODULE_0__["default"])('p2');
-const p1Board = p1.getGameboard();
-// p1Board.setShip(Ship(2), [0, 1]);
-p1.initializePresetShips();
-const p2Board = p2.getGameboard();
-_components_Gameboard_display__WEBPACK_IMPORTED_MODULE_1__["default"].renderP1View(p1Board, p2Board);
-_components_Gameboard_display__WEBPACK_IMPORTED_MODULE_1__["default"].renderP2View(p2Board, p1Board);
+(0,_components_Game__WEBPACK_IMPORTED_MODULE_5__["default"])(p1, p2);
+
 // TODO i think pass the player insted of the board... then getGameboard() INSIDE the function.
 // this way we can extract things like name inside the function
 // and more IMPORTANTLY, we can add a "() => player" to the click handler of the squares
@@ -961,4 +1102,4 @@ console.log('index');
 
 /******/ })()
 ;
-//# sourceMappingURL=main.e0340e9b5a061c3cecc6.js.map
+//# sourceMappingURL=main.0507622e4e35eb17c5b3.js.map

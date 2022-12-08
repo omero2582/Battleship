@@ -33,18 +33,18 @@ body{
   /* border: 2px solid black; */
 }
 
-.square.empty-no-hit{
+.square.no-hit-empty{
   background-color: var(--empty-no-hit);
 }
-.square.empty-hit {
+.square.hit-empty {
   background-color: var(--empty-hit);
 }
 
-.square.ship-no-hit {
+.square.no-hit-ship {
   background-color: var(--ship-no-hit);
 }
 
-.square.ship-hit {
+.square.hit-ship {
   background-color: var(--ship-hit);
 }
 

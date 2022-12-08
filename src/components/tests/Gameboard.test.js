@@ -41,9 +41,9 @@ describe('Gameboard', () =>{
   it('setsShip if Coordinates are valid and empty and either horizontal or veritcal', () => {
     const board = Gameboard();
     const ship1 = Ship(2);
-    expect(board.setShip(ship1, allInputsToIndex(['A1']))).toBe(false);
-    expect(board.setShip(ship1, allInputsToIndex(['A1', 'A0']))).toBe(false);
-    expect(board.setShip(ship1, allInputsToIndex(['A1', 'A2']))).toBe(true);
+    expect(board.setShip(allInputsToIndex(['A1']), ship1)).toBe(false);
+    expect(board.setShip(allInputsToIndex(['A1', 'A0']), ship1)).toBe(false);
+    expect(board.setShip(allInputsToIndex(['A1', 'A2']), ship1)).toBe(true);
     expect(board.getPiece(0)).toEqual(ship1);
     expect(board.getPiece(1)).toEqual(ship1);
     expect(board.getPiece(2)).toBe(null);
@@ -57,7 +57,7 @@ describe('Gameboard', () =>{
     const a2 = board.getSquare(inputToIndex('A2')); 
     expect(a1.isEmpty() && !a1.isHit()).toBe(true); 
     expect(a2.isEmpty() && !a2.isHit()).toBe(true);
-    board.setShip(ship1, allInputsToIndex(['A1', 'A2']));
+    board.setShip(allInputsToIndex(['A1', 'A2'], ship1));
     expect(!a1.isEmpty() && !a1.isHit()).toBe(true);
     expect(!a2.isEmpty() && !a2.isHit()).toBe(true);
     board.receiveAttack(inputToIndex('A2'));
