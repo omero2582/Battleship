@@ -7,6 +7,7 @@ const Game = (p1, p2) => {
   let attackPlayer;
   let defendPlayer;
   let winner;
+  let gameOver = false;
   const renderPlayers = () => {
     GameboardDisplay.renderP1View(p1, p2);
     GameboardDisplay.renderP2View(p2, p1);
@@ -34,12 +35,15 @@ const Game = (p1, p2) => {
   const endTurn = () => {
     if (defendPlayer.isAllShipsShunk()) {
       winner = attackPlayer;
+      gameOver = true;
       endGame();
     } else {
       nextTurn();
     }
   };
   const onSquareClick = ({ player, index }) => {
+    if (gameOver) { return; }
+
     console.log(index);
     if (player === defendPlayer) {
       player.getGameboard().receiveAttack(index);
